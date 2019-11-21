@@ -1,10 +1,7 @@
 package com.example.demo.controller;
 
-import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.demo.entity.Associate;
+import com.example.demo.entity.AssociateInfo;
+import com.example.demo.entity.AssociateSkills;
 import com.example.demo.entity.Message;
-import com.example.demo.entity.Skill;
 import com.example.demo.entity.SkillsInfo;
 import com.example.demo.service.FileService;
 import com.example.demo.service.MailService;
@@ -65,59 +62,59 @@ public class SkillsRestController
 	 
 	 
 	@RequestMapping("/associate/{id}")
-	Optional<Associate> getAssociate(@PathVariable("id") String id) {
+	Optional<AssociateInfo> getAssociate(@PathVariable("id") String id) {
 		System.out.println("url hit");
 		return service.getAssociate(id);
 	}
 	
 	@RequestMapping("/name/{name}")
-	Optional<Associate> getAssociateName(@PathVariable("name") String name) {
+	Optional<AssociateInfo> getAssociateName(@PathVariable("name") String name) {
 		System.out.println("url hit");
 		return service.getAssociateName(name);
 	}
 	
 	@GetMapping(path="/associate/all")
-	public @ResponseBody Iterable<Associate> getAllAssociates() {
+	public @ResponseBody Iterable<AssociateInfo> getAllAssociates() {
 		System.out.println("url hit for all");
 		return service.getAllAssociates();
 	}
 	
 	@GetMapping(path="/associateSkills/{id}")
-	List<Skill> getAllAssociatesSkills(@PathVariable("id") String id) {
+	List<AssociateSkills> getAllAssociatesSkills(@PathVariable("id") String id) {
 		System.out.println("url hit for all skills");
 		return service.getAllAssociatesSkills(id);
 	}
 	
 	@GetMapping(path="/associateSkills/all")
-	Iterable<Associate> getAssociatesSkills() {
+	Iterable<AssociateSkills> getAssociatesSkills() {
 		System.out.println("url hit for all associate skills");
 		return service.getAssociatesSkills();
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAssociateSkillByAid/{id}")
-	Iterable<Skill> deleteAssociatesSkillsByAid(@PathVariable String id) {
+	Iterable<AssociateSkills> deleteAssociatesSkillsByAid(@PathVariable String id) {
 		return service.deleteAssociatesSkillsByAid(id);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateAssociateSkills")
-	void updateAssociateSkills(@RequestBody Associate associateSkills) 
+	void updateAssociateSkills(@RequestBody AssociateSkills skills) 
 	{
-		System.out.println(associateSkills);
-		service.updateAssociateSkills(associateSkills);
+		System.out.println(skills);
+		service.updateAssociateSkills(skills);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateAssociate")
-	void updateAssociate(@RequestBody Associate associate) 
+	void updateAssociate(@RequestBody AssociateInfo associate) 
 	{
 		System.out.println(associate);
 		service.updateAssociate(associate);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/saveAssociate")
-	void saveAssociate(@RequestBody Associate associate) 
+	void saveAssociate(@RequestBody AssociateInfo associate) 
 	{
 		System.out.println(associate);
-		service.saveAssociate(associate);
+		 service.saveAssociate(associate);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAssociate/{id}")
@@ -156,23 +153,6 @@ public class SkillsRestController
 		}
 		return "Congratulations! Your mail has been send to the user.";
 	}
-	
-	
-	
-//	@SuppressWarnings("unchecked")
-//	@GetMapping(path="/hrDetails/all")
-//	public HR[] getFromLogin() {
-//		System.out.println("url hit for login");
-//		String url = "http://main-skillsLoginHR-tracker/hrDetails/all";
-//		return restTemplate.getForObject(url, HR[].class);
-//	}
-	
-//	@RequestMapping(method = RequestMethod.PUT, value = "/updateHR")
-//	void updateHR(@RequestBody HR hr) 
-//	{
-//		System.out.println(hr);
-//		String url = "http://main-skillsLoginHR-tracker/updateHR";
-//		restTemplate.put(url, hr);
-//	}
+
 	
 }

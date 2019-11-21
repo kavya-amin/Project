@@ -1,43 +1,27 @@
 package com.example.demo.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
 
 @Entity
+@Data
+@Table(name = "skills_info")
 public class SkillsInfo 
-{
-	String skillName, skillCategory;
-	
+{	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "skill_id")
 	String skillId;
-	
-	public String getSkillName() {
-		return skillName;
-	}
-	public void setSkillName(String skillName) {
-		this.skillName = skillName;
-	}
-	public String getSkillCategory() {
-		return skillCategory;
-	}
-	public void setSkillCategory(String skillCategory) {
-		this.skillCategory = skillCategory;
-	}
-	public String getSkillId() {
-		return skillId;
-	}
-	public void setSkillId(String skillId) {
-		this.skillId = skillId;
-	}
-	public SkillsInfo() {
-		// TODO Auto-generated constructor stub
-	}
-	public SkillsInfo(String skillName, String skillCategory, String skillId) {
-		super();
-		this.skillName = skillName;
-		this.skillCategory = skillCategory;
-		this.skillId = skillId;
-	}
+	@Column(name = "skill_name")
+	String skillName;
+	@Column(name = "skill_category")
+	String skillCategory;
 	
 	
 }

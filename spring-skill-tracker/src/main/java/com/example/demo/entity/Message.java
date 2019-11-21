@@ -2,30 +2,16 @@ package com.example.demo.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
 
 @Entity
+@Data
+@Table(name = "message")
 public class Message {
 	
 	private String message;
 	@Id
 	private String mail;
-	
-	
-
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-	
 }
