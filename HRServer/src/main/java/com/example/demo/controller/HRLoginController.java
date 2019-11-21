@@ -27,7 +27,11 @@ public class HRLoginController
 	
 	@Autowired
 	private MailService notificationService;
-
+	
+	@PostMapping("/create-hr")
+	public HR createHr(@RequestBody HR hr) {
+		return service.createHR(hr);
+	}
 	
 
 	@RequestMapping("/send-mail")

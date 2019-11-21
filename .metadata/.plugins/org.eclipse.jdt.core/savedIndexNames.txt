@@ -20,10 +20,8 @@ INDEX VERSION 1.131+C:\Users\b8ibmjava19\Documents\Project\.metadata\.plugins\or
 4050673299.index
 910965073.index
 3217530794.index
-3996906130.index
 1258697183.index
 789908302.index
-1926114561.index
 3619436317.index
 1456343962.index
 2389134194.index

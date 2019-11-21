@@ -46,7 +46,7 @@ public class MailService {
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setTo(user.getEmailAddress());
 		mail.setSubject("Confidential - Password Reset");
-		mail.setText("You can reset the password by clicking on this link");
+		mail.setText("You can reset the password by clicking on this link http://localhost:4200/passwordPage");
 
 		/*
 		 * This send() contains an Object of SimpleMailMessage as an Parameter

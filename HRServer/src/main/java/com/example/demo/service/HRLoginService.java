@@ -29,12 +29,20 @@ public class HRLoginService
 	private JavaMailSender javaMailSender;
 	
 	@Autowired
-	public HRLoginService(HRLoginRepository repo, BCryptPasswordEncoder bCryptPasswordEncoder) {
+	public HRLoginService(HRLoginRepository repo, BCryptPasswordEncoder bCryptPasswordEncoder,
+			JavaMailSender javaMailSender) {
 		super();
 		this.repo = repo;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+		this.javaMailSender=javaMailSender;
 	}
-
+	
+	
+	public HR createHR(HR hr) {
+		HR Hr = new HR();
+		Hr= repo.save(hr);
+		return Hr;
+	}
 
 public HR verifyUser(String email, String pass ) {
 	

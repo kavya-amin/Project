@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.demo.entity.HR;
 
-public interface HRLoginRepository extends CrudRepository<HR, String> {
+public interface HRLoginRepository extends CrudRepository<HR, Integer> {
 		
 	HR findByUserEmail(String name);
 	
