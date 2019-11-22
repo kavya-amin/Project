@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.entity.AssociateInfo;
@@ -20,18 +21,22 @@ import com.example.demo.repository.SkillsInfoRepository;
 public class SkillsDao 
 {
 	@Autowired
-	AssociateInfoRepository skillsRepo;
+	private AssociateInfoRepository skillsRepo;
 	
 	@Autowired
-	AssociateSkillsRepository assoRepo;
+	private AssociateSkillsRepository assoRepo;
 	
 	@Autowired
-	SkillsInfoRepository skillInfoRepo;
+	private SkillsInfoRepository skillInfoRepo;
 	
 	@Autowired
-	AssociateSkillsInt assoSkillsRepo;
+	private AssociateSkillsInt assoSkillsRepo;
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	public Optional<AssociateInfo> getAssociateInfo(String id)
+
+
+	public Optional<AssociateInfo> getAssociateInfo(int id)
 	{
 		System.out.println("In skills dao");
 		return skillsRepo.findById(id);
@@ -66,7 +71,7 @@ public class SkillsDao
 		assoRepo.save(skills);
 	}
 
-	public void deleteAssociate(String id) {
+	public void deleteAssociate(int id) {
 		skillsRepo.deleteById(id);
 		
 	}
@@ -80,10 +85,11 @@ public class SkillsDao
 	public Iterable<AssociateSkills> deleteAssociatesSkillsByAid(String id) {
 		return assoRepo.deleteByAidAssociateId(id);
 	}
-
+	
+	@Transactional
 	public void saveAssociate(AssociateInfo associate) {
-		skillsRepo.save(associate);
-		
+		associate.setPassword(bCryptPasswordEncoder.encode(associate.getPassword()));
+		skillsRepo.save(associate);	
 	}
 
 	public void saveSkills(List<SkillsInfo> skillInfo) {
@@ -92,9 +98,10 @@ public class SkillsDao
 
 	public Optional<AssociateInfo> getAssociateName(String name) {
 		// TODO Auto-generated method stub
-		return skillsRepo.findByAssociateName(name);
+		return skillsRepo.findByAssociateFirstName(name);
 	}
-
-		
 	
+	public List<AssociateInfo> findByCountryAndLocation(String country,String location){
+		return skillsRepo.findByCountryAndLocation(country, location);
+		}	
 }

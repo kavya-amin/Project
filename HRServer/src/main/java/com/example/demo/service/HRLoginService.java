@@ -20,14 +20,13 @@ import org.springframework.mail.SimpleMailMessage;
 public class HRLoginService 
 {
 	@Autowired
-	HRLoginRepository repo;
+	private HRLoginRepository repo;
 	
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	@Autowired
-	private JavaMailSender javaMailSender;
-	
+	private JavaMailSender javaMailSender;	
 	@Autowired
 	public HRLoginService(HRLoginRepository repo, BCryptPasswordEncoder bCryptPasswordEncoder,
 			JavaMailSender javaMailSender) {
@@ -39,16 +38,17 @@ public class HRLoginService
 	
 	
 	public HR createHR(HR hr) {
-		HR Hr = new HR();
-		Hr= repo.save(hr);
-		return Hr;
+		String bpass = bCryptPasswordEncoder.encode(hr.getUserPassword());
+		hr.setBcryptPass(bpass);
+		System.out.println(hr.getBcryptPass());
+    	return repo.save(hr);
 	}
 
 public HR verifyUser(String email, String pass ) {
 	
 	HR hr = repo.findByUserEmail(email);
 	if(hr!=null) {
-		    if(hr.getUserEmail().equals(email) && bCryptPasswordEncoder.matches(pass, hr.getUserPassword()))
+		    if(hr.getUserEmail().equals(email) && hr.getUserPassword().equals(pass))
 		    {
 			return hr;
 		    }

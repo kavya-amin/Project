@@ -60,17 +60,24 @@ public class SkillsRestController
 	  }
 	 }	
 	 
+	
 	 
 	@RequestMapping("/associate/{id}")
-	Optional<AssociateInfo> getAssociate(@PathVariable("id") String id) {
+	public Optional<AssociateInfo> getAssociate(@PathVariable("id") int id) {
 		System.out.println("url hit");
 		return service.getAssociate(id);
 	}
 	
 	@RequestMapping("/name/{name}")
-	Optional<AssociateInfo> getAssociateName(@PathVariable("name") String name) {
+	public Optional<AssociateInfo> getAssociateName(@PathVariable("name") String name) {
 		System.out.println("url hit");
 		return service.getAssociateName(name);
+	}
+	
+	@RequestMapping("/country/{country}/and/location/{location}")
+	public List<AssociateInfo> getByCountryAndLocation(@PathVariable("country") String country,
+			@PathVariable("location") String location){
+		return service.findByCountryAndLocation(country, location);
 	}
 	
 	@GetMapping(path="/associate/all")
@@ -80,50 +87,50 @@ public class SkillsRestController
 	}
 	
 	@GetMapping(path="/associateSkills/{id}")
-	List<AssociateSkills> getAllAssociatesSkills(@PathVariable("id") String id) {
+	public List<AssociateSkills> getAllAssociatesSkills(@PathVariable("id") String id) {
 		System.out.println("url hit for all skills");
 		return service.getAllAssociatesSkills(id);
 	}
 	
 	@GetMapping(path="/associateSkills/all")
-	Iterable<AssociateSkills> getAssociatesSkills() {
+	public Iterable<AssociateSkills> getAssociatesSkills() {
 		System.out.println("url hit for all associate skills");
 		return service.getAssociatesSkills();
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAssociateSkillByAid/{id}")
-	Iterable<AssociateSkills> deleteAssociatesSkillsByAid(@PathVariable String id) {
+	public Iterable<AssociateSkills> deleteAssociatesSkillsByAid(@PathVariable String id) {
 		return service.deleteAssociatesSkillsByAid(id);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateAssociateSkills")
-	void updateAssociateSkills(@RequestBody AssociateSkills skills) 
+	public void updateAssociateSkills(@RequestBody AssociateSkills skills) 
 	{
 		System.out.println(skills);
 		service.updateAssociateSkills(skills);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateAssociate")
-	void updateAssociate(@RequestBody AssociateInfo associate) 
+	public void updateAssociate(@RequestBody AssociateInfo associate) 
 	{
 		System.out.println(associate);
 		service.updateAssociate(associate);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/saveAssociate")
-	void saveAssociate(@RequestBody AssociateInfo associate) 
+	public void saveAssociate(@RequestBody AssociateInfo associate) 
 	{
 		System.out.println(associate);
 		 service.saveAssociate(associate);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAssociate/{id}")
-	void deleteAssociate(@PathVariable String id) {
+	public void deleteAssociate(@PathVariable int id) {
 		service.deleteAssociate(id);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAssociateSkill/{id}")
-	void deleteAssociateSkill(@PathVariable Integer id) {
+	public void deleteAssociateSkill(@PathVariable Integer id) {
 		service.deleteAssociateSkill(id);
 	}
 	
@@ -134,7 +141,7 @@ public class SkillsRestController
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/saveSkills")
-	void saveSkills(@RequestBody List<SkillsInfo> skillInfo) 
+	public void saveSkills(@RequestBody List<SkillsInfo> skillInfo) 
 	{
 		System.out.println("save skills");
 		service.saveSkills(skillInfo);

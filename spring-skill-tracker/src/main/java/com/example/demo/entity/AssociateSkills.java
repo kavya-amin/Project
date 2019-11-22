@@ -20,22 +20,22 @@ public class AssociateSkills
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "sr_no")
-	Integer srNo;	
-	String certification;
-	String rating;
+	private Integer srNo;	
+	private String certification;
+	private String rating;
 	@Column(name = "start_date")
-	String startDate;
+	private String startDate;
 	@Column(name = "end_date")
-	String endDate;
-	String duration;
-	String experience;
+	private String endDate;
+	private String duration;
+	private String experience;
 	
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
 	@JoinColumn(name = "associate_id")
-	AssociateInfo aid;
+	private AssociateInfo aid;
 	
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
 	@JoinColumn(name = "skill_id")
-	SkillsInfo sid;
+	private SkillsInfo sid;
 	
 }

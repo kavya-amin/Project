@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,14 +18,20 @@ public class AssociateInfo
 {	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "associate_id")
-	String associateId;
-	@Column(name = "associate_name")
-	String associateName;
+	private int associateId;
+	@Column(name = "associate_first_name")
+	private String associateFirstName;
+	@Column(name = "associate_last_name")
+	private String associateLastName;
 	@Column(name = "associate_email")
-	String associateEmail;
-	@Column(name = "associate_image")
-	String associateImage;
+	private String associateEmail;
+	private String password;
+	//@Column(name = "associate_image")
+	//private String associateImage;
 	@Column(name = "associate_mobile")
-	String associateMobile;
-
+	private long associateMobile;
+	private Date dob;
+	private String gender;
+	private String location;
+	private String country;
 }

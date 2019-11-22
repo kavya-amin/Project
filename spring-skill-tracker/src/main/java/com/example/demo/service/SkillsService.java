@@ -23,8 +23,9 @@ public class SkillsService
 		super();
 		this.javaMailSender = javaMailSender;
 	}
-
-	public Optional<AssociateInfo> getAssociate(String id)
+    
+    
+	public Optional<AssociateInfo> getAssociate(int id)
 	{
 		return sd.getAssociateInfo(id);
 	}
@@ -57,7 +58,7 @@ public class SkillsService
 		
 	}
 
-	public void deleteAssociate(String id) {
+	public void deleteAssociate(int id) {
 		sd.deleteAssociate(id);
 		
 	}
@@ -86,7 +87,10 @@ public class SkillsService
 		// TODO Auto-generated method stub
 		return sd.getAssociateName(name);
 	}
-
+	
+	public List<AssociateInfo> findByCountryAndLocation(String country, String location){
+		return sd.findByCountryAndLocation(country, location);
+	}
 	
 	
 }

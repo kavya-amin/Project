@@ -7,9 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.demo.entity.AssociateInfo;
 
-public interface AssociateInfoRepository extends CrudRepository<AssociateInfo, String> 
+public interface AssociateInfoRepository extends CrudRepository<AssociateInfo, Integer> 
 {
-	Optional<AssociateInfo> findByAssociateName(String associateName);
+	Optional<AssociateInfo> findByAssociateFirstName(String associateFirstName);
 	List<AssociateInfo> findByAssociateEmail(String associateName);
+	List<AssociateInfo> findByCountryAndLocation(String country,String location);
 	//Optional<AssociateInfo> findByName(String name);
 }

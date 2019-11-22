@@ -17,11 +17,9 @@ public class SkillsInfo
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "skill_id")
-	String skillId;
+	private int skillId;
 	@Column(name = "skill_name")
-	String skillName;
+	private String skillName;
 	@Column(name = "skill_category")
-	String skillCategory;
-	
-	
+	private String skillCategory;
 }
