@@ -16,6 +16,7 @@ import com.example.demo.repository.AssociateInfoRepository;
 import com.example.demo.repository.AssociateSkillsInt;
 import com.example.demo.repository.AssociateSkillsRepository;
 import com.example.demo.repository.SkillsInfoRepository;
+import com.example.demo.service.MailService;
 
 @Repository
 public class SkillsDao 
@@ -33,6 +34,9 @@ public class SkillsDao
 	private AssociateSkillsInt assoSkillsRepo;
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	@Autowired
+	private MailService mailService;
 	
 
 
@@ -88,6 +92,7 @@ public class SkillsDao
 	
 	@Transactional
 	public void saveAssociate(AssociateInfo associate) {
+		mailService.sendEmail(associate.getAssociateEmail(),associate.getPassword());
 		associate.setPassword(bCryptPasswordEncoder.encode(associate.getPassword()));
 		skillsRepo.save(associate);	
 	}

@@ -41,6 +41,7 @@ public class HRLoginService
 		String bpass = bCryptPasswordEncoder.encode(hr.getUserPassword());
 		hr.setBcryptPass(bpass);
 		System.out.println(hr.getBcryptPass());
+		
     	return repo.save(hr);
 	}
 

@@ -15,7 +15,10 @@ import com.example.demo.entity.SkillsInfo;
 public class SkillsService 
 {
 	@Autowired
-	SkillsDao sd;
+	private SkillsDao sd;
+	
+	@Autowired
+	private MailService mailService;
 	
 	private JavaMailSender javaMailSender;
 

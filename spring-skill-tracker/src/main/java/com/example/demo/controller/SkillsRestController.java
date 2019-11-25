@@ -147,7 +147,7 @@ public class SkillsRestController
 		service.saveSkills(skillInfo);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/send-mail")
+/**	@RequestMapping(method = RequestMethod.POST, value = "/send-mail")
 	public String send(@RequestBody Message msg) 
 	{
 		System.out.println("controller called");
@@ -159,7 +159,7 @@ public class SkillsRestController
 			System.out.println(mailException);
 		}
 		return "Congratulations! Your mail has been send to the user.";
-	}
+	} **/
 
 	
 }

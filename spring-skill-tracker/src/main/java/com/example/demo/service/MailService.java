@@ -18,14 +18,13 @@ public class MailService {
 		this.javaMailSender = javaMailSender;
 	}
 	
-	public void sendEmail(Message msg) throws MailException 
+	public void sendEmail(String email, String password) throws MailException 
 	{
 		SimpleMailMessage mail = new SimpleMailMessage();
-		mail.setTo(msg.getMail());
+		mail.setTo(email);
 		mail.setSubject("Welcome message");
-		System.out.println(msg.getMessage());
-		//mail.setText("Hi, Welcome to the Skill hunt Portal. You have to learn more skills to move higher in levels");
-		mail.setText(msg.getMessage());
+		mail.setText("Welcome to the Skill hunt Portal. You have to learn more skills to move higher in levels. \nYour password is : "
+		+password);
 		javaMailSender.send(mail);
 		System.out.println("mail sent");
 	}

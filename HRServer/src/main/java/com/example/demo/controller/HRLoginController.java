@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.component.User;
 import com.example.demo.entity.HR;
-import com.example.demo.entity.HRModel;
 import com.example.demo.service.HRLoginService;
 import com.example.demo.service.MailService;
 
@@ -61,7 +60,7 @@ public class HRLoginController
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/login")
-	HR verifyUser(@RequestBody HRModel hr ) {
+	HR verifyUser(@RequestBody HR hr ) {
 			return service.verifyUser(hr.getUserEmail(),hr.getUserPassword());
 	}
 	
