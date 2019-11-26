@@ -1,5 +1,8 @@
 package com.example.demo.entity;
 
+import java.util.Date;
+import java.util.Optional;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -30,12 +35,14 @@ public class AssociateSkills
 	private String duration;
 	private String experience;
 	
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "associate_id")
-	private AssociateInfo aid;
+	@ManyToOne
 	
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "skill_id")
+	@JoinColumn(name = "associate_id",nullable = false)
+	public AssociateInfo aid;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "skill_id",nullable = false)
 	private SkillsInfo sid;
 	
 }

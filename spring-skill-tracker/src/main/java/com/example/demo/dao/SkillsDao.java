@@ -40,19 +40,32 @@ public class SkillsDao
 	
 
 
-	public Optional<AssociateInfo> getAssociateInfo(int id)
+	public void getAssociateInfo(int id)
 	{
 		System.out.println("In skills dao");
-		return skillsRepo.findById(id);
+		 skillsRepo.findById(id);
 	}
-
+	
+	public AssociateInfo findByUserId(int associateId) {
+		return skillsRepo.findUserByAssociateId(associateId);
+	}
+	
+	public SkillsInfo findUserById(int skillId) {
+		return skillInfoRepo.findUserBySkillId(skillId);
+	}
+	
+	public void getSkillsInfo(int id){
+		System.out.println("In skills dao");
+	 skillsRepo.findById(id);
+	}
+	
 	public Iterable<AssociateInfo> getAllAssociates() 
 	{
 		System.out.println("dao hit for all");
 		return skillsRepo.findAll();
 	}
 
-	public List<AssociateSkills> getAllAssociatesSkills(String id) {
+	public List<AssociateSkills> getAllAssociatesSkills(int id) {
 		return assoRepo.findByAidAssociateId(id);
 	}
 
@@ -64,15 +77,22 @@ public class SkillsDao
 		
 		return assoRepo.findAll();
 	}
-
+	
+	@Transactional
 	public void updateAssociate(AssociateInfo associate) {
 		skillsRepo.save(associate);
 		
 	}
-
+	
+	@Transactional
 	public void updateAssociateSkills(AssociateSkills skills) 
 	{
 		assoRepo.save(skills);
+	}
+	
+	@Transactional
+	public AssociateSkills saveAssociateSkills(AssociateSkills skills) {
+		return assoRepo.save(skills);
 	}
 
 	public void deleteAssociate(int id) {
@@ -86,7 +106,7 @@ public class SkillsDao
 	}
 
 	@Transactional
-	public Iterable<AssociateSkills> deleteAssociatesSkillsByAid(String id) {
+	public Iterable<AssociateSkills> deleteAssociatesSkillsByAid(int id) {
 		return assoRepo.deleteByAidAssociateId(id);
 	}
 	
@@ -97,8 +117,8 @@ public class SkillsDao
 		skillsRepo.save(associate);	
 	}
 
-	public void saveSkills(List<SkillsInfo> skillInfo) {
-		skillInfoRepo.saveAll(skillInfo);
+	public void saveSkills(SkillsInfo skillInfo) {
+		skillInfoRepo.save(skillInfo);
 	}
 
 	public Optional<AssociateInfo> getAssociateName(String name) {

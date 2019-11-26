@@ -6,5 +6,5 @@ import com.example.demo.entity.SkillsInfo;
 
 public interface SkillsInfoRepository extends CrudRepository<SkillsInfo, Integer> 
 {
-	
+	public SkillsInfo findUserBySkillId(int skillId);
 }

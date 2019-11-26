@@ -28,17 +28,22 @@ public class SkillsService
 	}
     
     
-	public Optional<AssociateInfo> getAssociate(int id)
+	public void getAssociate(int id)
 	{
-		return sd.getAssociateInfo(id);
+		 sd.getAssociateInfo(id);
 	}
 
+	public void getSkillInfo(int id)
+	{
+		 sd.getSkillsInfo(id);
+	}
+	
 	public Iterable<AssociateInfo> getAllAssociates() {
 		System.out.println("service for all");
 		return sd.getAllAssociates();
 	}
 
-	public List<AssociateSkills> getAllAssociatesSkills(String id) {
+	public List<AssociateSkills> getAllAssociatesSkills(int id) {
 		return sd.getAllAssociatesSkills(id);
 	}
 
@@ -73,7 +78,7 @@ public class SkillsService
 
 	
 
-	public Iterable<AssociateSkills> deleteAssociatesSkillsByAid(String id) {
+	public Iterable<AssociateSkills> deleteAssociatesSkillsByAid(int id) {
 		return sd.deleteAssociatesSkillsByAid(id);
 	}
 
@@ -81,9 +86,13 @@ public class SkillsService
 		sd.saveAssociate(associate);
 	}
 
-	public void saveSkills(List<SkillsInfo> skillInfo) {
+	public void saveSkills(SkillsInfo skillInfo) {
 		sd.saveSkills(skillInfo);
 		
+	}
+	
+	public AssociateSkills saveAssociateSkills(AssociateSkills skills) {
+		return  sd.saveAssociateSkills(skills);
 	}
 
 	public Optional<AssociateInfo> getAssociateName(String name) {
@@ -93,6 +102,14 @@ public class SkillsService
 	
 	public List<AssociateInfo> findByCountryAndLocation(String country, String location){
 		return sd.findByCountryAndLocation(country, location);
+	}
+	
+	public AssociateInfo findByUserId(int associateId) {
+		return sd.findByUserId(associateId);
+	}
+	
+	public SkillsInfo findUserById(int skillId) {
+		return sd.findUserById(skillId);
 	}
 	
 	

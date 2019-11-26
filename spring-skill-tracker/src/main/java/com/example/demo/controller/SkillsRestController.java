@@ -2,6 +2,9 @@ package com.example.demo.controller;
 
 import java.util.List;
 import java.util.Optional;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +42,6 @@ public class SkillsRestController
 	
 	@Autowired
 	private MailService notificationService;
-
 	
 	@Autowired
 	RestTemplate restTemplate;
@@ -60,12 +62,40 @@ public class SkillsRestController
 	  }
 	 }	
 	 
+	@RequestMapping(method = RequestMethod.POST, value = "/saveAssociateSkill/{associateId}/{skillId}")
+	 public AssociateSkills saveAssociateSkills(@PathVariable(value="associateId") int associateId,
+			 @PathVariable(value="skillId") int skillId,@Valid @RequestBody AssociateSkills skills) {
+		
+		AssociateInfo info=service.findByUserId(associateId);
+		SkillsInfo info1=service.findUserById(skillId);
+		skills.setAid(info);
+		skills.setSid(info1);
+		return service.saveAssociateSkills(skills);
+		
+	 }
 	
+	@RequestMapping("/associateId/{associateId}")
+	public AssociateInfo findByUserId(@PathVariable("associateId") int id) {
+		return service.findByUserId(id);	
+	}
+	
+	@RequestMapping("/skillId/{skillId}")
+	public SkillsInfo findUserById(@PathVariable("skillId") int id) {
+		return service.findUserById(id);
+	}
+	
+	/** 
+	 @RequestMapping(method = RequestMethod.POST, value = "/saveAssociateSkill")
+	 public AssociateSkills saveAssociateSkills(@RequestBody AssociateSkills skills) {
+		 System.out.println(skills);
+		 test.create(skills);
+		 return skills;
+	 }**/
 	 
 	@RequestMapping("/associate/{id}")
-	public Optional<AssociateInfo> getAssociate(@PathVariable("id") int id) {
+	public void getAssociate(@PathVariable("id") int id) {
 		System.out.println("url hit");
-		return service.getAssociate(id);
+		service.getAssociate(id);
 	}
 	
 	@RequestMapping("/name/{name}")
@@ -87,7 +117,7 @@ public class SkillsRestController
 	}
 	
 	@GetMapping(path="/associateSkills/{id}")
-	public List<AssociateSkills> getAllAssociatesSkills(@PathVariable("id") String id) {
+	public List<AssociateSkills> getAllAssociatesSkills(@PathVariable("id") int id) {
 		System.out.println("url hit for all skills");
 		return service.getAllAssociatesSkills(id);
 	}
@@ -99,7 +129,7 @@ public class SkillsRestController
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAssociateSkillByAid/{id}")
-	public Iterable<AssociateSkills> deleteAssociatesSkillsByAid(@PathVariable String id) {
+	public Iterable<AssociateSkills> deleteAssociatesSkillsByAid(@PathVariable int id) {
 		return service.deleteAssociatesSkillsByAid(id);
 	}
 	
@@ -141,10 +171,16 @@ public class SkillsRestController
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/saveSkills")
-	public void saveSkills(@RequestBody List<SkillsInfo> skillInfo) 
+	public void saveSkills(@RequestBody SkillsInfo skillInfo) 
 	{
 		System.out.println("save skills");
 		service.saveSkills(skillInfo);
+	}
+	
+	@RequestMapping("/skill/{id}")
+	public void getSkillInfo(@PathVariable("id") int id) {
+		System.out.println("url hit");
+		 service.getSkillInfo(id);
 	}
 	
 /**	@RequestMapping(method = RequestMethod.POST, value = "/send-mail")
@@ -160,6 +196,7 @@ public class SkillsRestController
 		}
 		return "Congratulations! Your mail has been send to the user.";
 	} **/
-
+	
+	
 	
 }

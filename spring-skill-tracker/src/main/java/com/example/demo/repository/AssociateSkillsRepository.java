@@ -8,8 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 import com.example.demo.entity.AssociateSkills;
 
 
-public interface AssociateSkillsRepository extends CrudRepository<AssociateSkills, String>
+public interface AssociateSkillsRepository extends CrudRepository<AssociateSkills, Integer>
 {
-	List<AssociateSkills> findByAidAssociateId(String associateId);
-	Iterable<AssociateSkills> deleteByAidAssociateId(String id);
+	List<AssociateSkills> findByAidAssociateId(Integer associateId);
+	Iterable<AssociateSkills> deleteByAidAssociateId(Integer id);
 }
