@@ -121,12 +121,54 @@ public class SkillsDao
 		skillInfoRepo.save(skillInfo);
 	}
 
-	public Optional<AssociateInfo> getAssociateName(String name) {
+	public List<AssociateInfo> getAssociateName(String name) {
 		// TODO Auto-generated method stub
 		return skillsRepo.findByAssociateFirstName(name);
+	}
+	
+	public List<AssociateInfo> getAssociateLastName(String name){
+		return skillsRepo.findByAssociateLastName(name);
+	}
+	
+	public List<AssociateInfo> getAssociateFisrtAndLastName(String FirstName, String LastName){
+		return skillsRepo.findByAssociateFirstNameAndAssociateLastName(FirstName, LastName);
+	}
+	
+	public AssociateInfo getAssociateEmail(String email){
+		return skillsRepo.findByAssociateEmail(email);
+	}
+	
+	public List<AssociateInfo> getAssociateMobile(long mobile){
+		return skillsRepo.findByAssociateMobile(mobile);
 	}
 	
 	public List<AssociateInfo> findByCountryAndLocation(String country,String location){
 		return skillsRepo.findByCountryAndLocation(country, location);
 		}	
+	
+	public List<AssociateInfo> findByCountry(String country){
+		return skillsRepo.findByCountry(country);
+	}
+	
+	public List<AssociateInfo> findByLocation(String location){
+		return skillsRepo.findByLocation(location);
+	}
+	
+	public AssociateInfo verifyAssociate(String email, String pass ) {
+		
+		AssociateInfo associateInfo = skillsRepo.findByAssociateEmail(email);
+		if(associateInfo!=null) {
+			    if(associateInfo.getAssociateEmail().equals(email) && associateInfo.getPassword().equals(bCryptPasswordEncoder.encode(pass)))
+			    {
+				return associateInfo;
+			    }
+			  else
+			  {
+				return null;
+			  }
+			}
+		else {
+			return null;
+			}
+	}
 }

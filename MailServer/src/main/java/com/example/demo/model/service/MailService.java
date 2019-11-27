@@ -30,7 +30,7 @@ public class MailService {
 
 	/**
 	 * This function is used to send mail without attachment.
-	 * @param user
+	 * @param email
 	 * @throws MailException
 	 */
 

@@ -35,13 +35,12 @@ public class AssociateSkills
 	private String duration;
 	private String experience;
 	
-	@ManyToOne
-	
+	@ManyToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "associate_id",nullable = false)
 	public AssociateInfo aid;
 	
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "skill_id",nullable = false)
 	private SkillsInfo sid;
 	

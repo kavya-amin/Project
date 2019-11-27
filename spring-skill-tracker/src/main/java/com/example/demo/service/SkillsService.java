@@ -95,7 +95,7 @@ public class SkillsService
 		return  sd.saveAssociateSkills(skills);
 	}
 
-	public Optional<AssociateInfo> getAssociateName(String name) {
+	public List<AssociateInfo> getAssociateName(String name) {
 		// TODO Auto-generated method stub
 		return sd.getAssociateName(name);
 	}
@@ -104,12 +104,40 @@ public class SkillsService
 		return sd.findByCountryAndLocation(country, location);
 	}
 	
+	public List<AssociateInfo> findByLastName(String LastName){
+		return sd.getAssociateLastName(LastName);
+	}
+	
+	public List<AssociateInfo> findByFirstNameAndLastName(String FirstName, String LastName){
+		return sd.getAssociateFisrtAndLastName(FirstName, LastName);
+	}
+	
+	public AssociateInfo findByEmail(String email){
+		return sd.getAssociateEmail(email);
+	}
+	
+	public List<AssociateInfo> findByMobile(long mobile){
+		return sd.getAssociateMobile(mobile);
+	}
+	
+	public List<AssociateInfo> findByCountry(String country){
+		return sd.findByCountry(country);
+	}
+	
+	public List<AssociateInfo> findByLocation(String location){
+		return sd.findByLocation(location);
+	}
+	
 	public AssociateInfo findByUserId(int associateId) {
 		return sd.findByUserId(associateId);
 	}
 	
 	public SkillsInfo findUserById(int skillId) {
 		return sd.findUserById(skillId);
+	}
+	
+	public AssociateInfo verifyAssociate(String email, String pass) {
+		return sd.verifyAssociate(email, pass);
 	}
 	
 	

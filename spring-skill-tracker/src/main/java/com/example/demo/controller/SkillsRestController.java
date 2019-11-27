@@ -98,13 +98,13 @@ public class SkillsRestController
 		service.getAssociate(id);
 	}
 	
-	@RequestMapping("/name/{name}")
-	public Optional<AssociateInfo> getAssociateName(@PathVariable("name") String name) {
+	@RequestMapping("/name/{associateFirstName}")
+	public List<AssociateInfo> getAssociateName(@PathVariable("associateFirstName") String name) {
 		System.out.println("url hit");
 		return service.getAssociateName(name);
 	}
 	
-	@RequestMapping("/country/{country}/and/location/{location}")
+	@GetMapping(path="/country/{country}/and/location/{location}")
 	public List<AssociateInfo> getByCountryAndLocation(@PathVariable("country") String country,
 			@PathVariable("location") String location){
 		return service.findByCountryAndLocation(country, location);
@@ -181,6 +181,44 @@ public class SkillsRestController
 	public void getSkillInfo(@PathVariable("id") int id) {
 		System.out.println("url hit");
 		 service.getSkillInfo(id);
+	}
+	
+	@GetMapping(path = "/AssociateLastName/{associateLastName}")
+	public List<AssociateInfo>  findByLastName(@PathVariable(value = "associateLastName")String LastName) {
+		return service.findByLastName(LastName);
+	}
+	
+	@GetMapping(path = "/AssociateFirstNameAndLastName/{associateFirstName}/{associateLastName}")
+	public List<AssociateInfo> findByFirstNameAndLastName(@PathVariable(value = "associateFirstName")
+	String fName,@PathVariable(value = "associateLastName") String lName){
+		
+		return service.findByFirstNameAndLastName(fName, lName);
+		
+	}
+	
+	@GetMapping(path = "/AssociateEmail/{associateEmail}")
+	public AssociateInfo findByEmail(@PathVariable(value = "associateEmail") String email){
+		return service.findByEmail(email);
+	}
+	
+	@GetMapping(path = "/AssociateMobile/{associateMobile}")
+	public List<AssociateInfo> findBymobile(@PathVariable(value = "associateMobile")long mobile){
+		return service.findByMobile(mobile);
+	}
+	
+	@GetMapping(path = "/Country/{country}")
+	public List<AssociateInfo> findByCountry(@PathVariable(value = "country") String country){
+		return service.findByCountry(country);
+	}
+	
+	@GetMapping(path = "/Location/{location}")
+	public List<AssociateInfo> findByLocation(@PathVariable(value = "location") String location){
+		return service.findByLocation(location);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/login")
+	AssociateInfo verifyAssociate(@RequestBody AssociateInfo associateInfo ) {
+			return service.verifyAssociate(associateInfo.getAssociateEmail(),associateInfo.getPassword());
 	}
 	
 /**	@RequestMapping(method = RequestMethod.POST, value = "/send-mail")
