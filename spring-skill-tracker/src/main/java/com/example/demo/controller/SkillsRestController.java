@@ -111,7 +111,7 @@ public class SkillsRestController
 	}
 	
 	@GetMapping(path="/associate/all")
-	public @ResponseBody Iterable<AssociateInfo> getAllAssociates() {
+	public  Iterable<AssociateInfo> getAllAssociates() {
 		System.out.println("url hit for all");
 		return service.getAllAssociates();
 	}

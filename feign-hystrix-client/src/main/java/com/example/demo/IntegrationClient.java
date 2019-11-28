@@ -11,15 +11,17 @@ public class IntegrationClient {
 	@Autowired
 	private AssociateInfoServiceClient associateInfoServiceClient;
 	
+	@HystrixCommand(fallbackMethod="getAllAssociatesFallback")
+	public Iterable<AssociateInfo> getAllAssociates(){
+		return this.associateInfoServiceClient.getAllAssociates();
+	}
+	
 	public void getAllAssociatesFallback() {
 		System.out.println("=======saveAssociateFallback=========");
 		
 	}
 	
-	@HystrixCommand(fallbackMethod="getAllAssociatesFallback")
-	public Iterable<AssociateInfo> getAllAssociates(){
-		return this.associateInfoServiceClient.getAllAssociates();
-	}
+
 	
 
 }
