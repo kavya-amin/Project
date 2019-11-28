@@ -123,7 +123,7 @@ public class SkillsRestController
 	}
 	
 	@GetMapping(path="/associateSkills/all")
-	public Iterable<AssociateSkills> getAssociatesSkills() {
+	public List<AssociateSkills> getAssociatesSkills() {
 		System.out.println("url hit for all associate skills");
 		return service.getAssociatesSkills();
 	}

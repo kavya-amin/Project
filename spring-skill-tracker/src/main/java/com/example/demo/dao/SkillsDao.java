@@ -73,7 +73,8 @@ public class SkillsDao
 		return skillInfoRepo.findAll();
 	}
 
-	public Iterable<AssociateSkills> getAssociatesSkills() {
+	@Transactional
+	public List<AssociateSkills> getAssociatesSkills() {
 		
 		return assoRepo.findAll();
 	}
@@ -94,12 +95,14 @@ public class SkillsDao
 	public AssociateSkills saveAssociateSkills(AssociateSkills skills) {
 		return assoRepo.save(skills);
 	}
-
+	
+	@Transactional
 	public void deleteAssociate(int id) {
 		skillsRepo.deleteById(id);
 		
 	}
-
+	
+	@Transactional
 	public void deleteAssociateSkill(Integer id) {
 		assoSkillsRepo.deleteById(id);
 		
@@ -160,14 +163,17 @@ public class SkillsDao
 		if(associateInfo!=null) {
 			    if(associateInfo.getAssociateEmail().equals(email) && associateInfo.getPassword().equals(bCryptPasswordEncoder.encode(pass)))
 			    {
+			    	System.out.print("success");
 				return associateInfo;
 			    }
 			  else
 			  {
+				  System.out.print("wrong");
 				return null;
 			  }
 			}
 		else {
+			System.out.print("Null");
 			return null;
 			}
 	}

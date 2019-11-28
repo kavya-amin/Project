@@ -57,7 +57,7 @@ public class SkillsService
 		return sd.getAllSkills();
 	}
 	
-	public Iterable<AssociateSkills> getAssociatesSkills() {
+	public List<AssociateSkills> getAssociatesSkills() {
 		return sd.getAssociatesSkills();
 	}
 
