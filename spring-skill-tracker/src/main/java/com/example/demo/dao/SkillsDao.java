@@ -188,5 +188,10 @@ public class SkillsDao
 			}
 	}
 	
+	public List<AssociateSkills> search(String res1,String res2,String res3,String res4,String res5,String res6,String res7) {
+		return assoRepo.findByAidAssociateFirstNameOrAidAssociateLastNameOrAidAssociateEmailOrAidLocationOrAidCountryOrSidSkillNameOrSidSkillCategory(res1, res2, res3, res4, res5, res6, res7);
+	}
+
+	
 	
 }

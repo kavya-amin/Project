@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.Data;
 
@@ -27,7 +28,7 @@ public class AssociateInfo
 	private String associateFirstName;
 	@Column(name = "associate_last_name")
 	private String associateLastName;
-	@Column(name = "associate_email")
+	@Column(name = "associate_email",unique=true)
 	private String associateEmail;
 	private String password;
 	//@Column(name = "associate_image")

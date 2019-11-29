@@ -221,6 +221,14 @@ public class SkillsRestController
 			return service.verifyAssociate(associateInfo.getAssociateEmail(),associateInfo.getPassword());
 	}
 	
+	
+	@RequestMapping(method= RequestMethod.GET, value="/search/{search}")
+	public List<AssociateSkills> search(@PathVariable String search) {
+		return service.search(search, search, search, search, search, search, search);
+	}
+
+
+	
 /**	@RequestMapping(method = RequestMethod.POST, value = "/send-mail")
 	public String send(@RequestBody Message msg) 
 	{

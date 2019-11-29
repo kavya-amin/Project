@@ -16,8 +16,9 @@ public class IntegrationClient {
 		return this.associateInfoServiceClient.getAllAssociates();
 	}
 	
-	public void getAllAssociatesFallback() {
+	public Iterable<AssociateInfo> getAllAssociatesFallback() {
 		System.out.println("=======saveAssociateFallback=========");
+		return null;
 		
 	}
 	
