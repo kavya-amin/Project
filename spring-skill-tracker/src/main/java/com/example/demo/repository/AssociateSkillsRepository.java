@@ -12,7 +12,7 @@ import com.example.demo.entity.SkillsInfo;
 
 public interface AssociateSkillsRepository extends CrudRepository<AssociateSkills, Integer>
 {
-	List<AssociateSkills> findByAidAssociateId(Integer associateId);
+	AssociateSkills findByAidAssociateId(Integer associateId);
 	Iterable<AssociateSkills> deleteByAidAssociateId(Integer id);
 	List<AssociateSkills> findAll();
 }

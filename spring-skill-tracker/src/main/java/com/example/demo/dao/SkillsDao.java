@@ -19,6 +19,7 @@ import com.example.demo.repository.SkillsInfoRepository;
 import com.example.demo.service.MailService;
 
 @Repository
+@Transactional
 public class SkillsDao 
 {
 	@Autowired
@@ -65,7 +66,7 @@ public class SkillsDao
 		return skillsRepo.findAll();
 	}
 
-	public List<AssociateSkills> getAllAssociatesSkills(int id) {
+	public AssociateSkills getAllAssociatesSkills(int id) {
 		return assoRepo.findByAidAssociateId(id);
 	}
 
@@ -80,8 +81,11 @@ public class SkillsDao
 	}
 	
 	@Transactional
-	public void updateAssociate(AssociateInfo associate) {
-		skillsRepo.save(associate);
+	public void updateAssociate(AssociateInfo associateInfo) {
+		String email = associateInfo.getAssociateEmail();
+		AssociateInfo associate = skillsRepo.findByAssociateEmail(email);
+		associateInfo.setAssociateId(associate.getAssociateId());
+		skillsRepo.save(associateInfo);
 		
 	}
 	
@@ -97,9 +101,15 @@ public class SkillsDao
 	}
 	
 	@Transactional
-	public void deleteAssociate(int id) {
-		skillsRepo.deleteById(id);
+	public void deleteAssociat(String email) {
 		
+		AssociateInfo associateInfo=skillsRepo.findByAssociateEmail(email);
+		int id = associateInfo.getAssociateId();
+		System.out.println("Associate id :"+id);
+		AssociateSkills associateSkills=assoRepo.findByAidAssociateId(id);
+		int id1 = associateSkills.getSrNo();
+		assoRepo.deleteById(id1);		
+		skillsRepo.deleteById(id);
 	}
 	
 	@Transactional
@@ -177,4 +187,6 @@ public class SkillsDao
 			return null;
 			}
 	}
+	
+	
 }

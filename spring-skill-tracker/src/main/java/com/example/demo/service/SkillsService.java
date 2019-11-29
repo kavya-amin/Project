@@ -43,7 +43,7 @@ public class SkillsService
 		return sd.getAllAssociates();
 	}
 
-	public List<AssociateSkills> getAllAssociatesSkills(int id) {
+	public AssociateSkills getAllAssociatesSkills(int id) {
 		return sd.getAllAssociatesSkills(id);
 	}
 
@@ -66,8 +66,8 @@ public class SkillsService
 		
 	}
 
-	public void deleteAssociate(int id) {
-		sd.deleteAssociate(id);
+	public void deleteAssociate(String AssociateEmail) {
+		sd.deleteAssociat(AssociateEmail);
 		
 	}
 
@@ -139,6 +139,8 @@ public class SkillsService
 	public AssociateInfo verifyAssociate(String email, String pass) {
 		return sd.verifyAssociate(email, pass);
 	}
+	
+	
 	
 	
 }

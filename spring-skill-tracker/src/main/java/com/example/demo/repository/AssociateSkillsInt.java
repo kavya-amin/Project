@@ -10,5 +10,5 @@ import com.example.demo.entity.AssociateSkills;
 public interface AssociateSkillsInt extends CrudRepository<AssociateSkills, Integer>
 {
 
-	void deleteByAidAssociateId(Integer id);
+	void deleteByAidAssociateId(AssociateSkills associateSkills);
 }

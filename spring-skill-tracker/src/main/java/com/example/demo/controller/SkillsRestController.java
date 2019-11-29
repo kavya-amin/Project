@@ -117,7 +117,7 @@ public class SkillsRestController
 	}
 	
 	@GetMapping(path="/associateSkills/{id}")
-	public List<AssociateSkills> getAllAssociatesSkills(@PathVariable("id") int id) {
+	public AssociateSkills getAllAssociatesSkills(@PathVariable("id") int id) {
 		System.out.println("url hit for all skills");
 		return service.getAllAssociatesSkills(id);
 	}
@@ -154,9 +154,9 @@ public class SkillsRestController
 		 service.saveAssociate(associate);
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAssociate/{id}")
-	public void deleteAssociate(@PathVariable int id) {
-		service.deleteAssociate(id);
+	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAssociate/{AssociateEmail}")
+	public void deleteAssociate(@PathVariable String AssociateEmail) {
+		service.deleteAssociate(AssociateEmail);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAssociateSkill/{id}")
@@ -234,7 +234,6 @@ public class SkillsRestController
 		}
 		return "Congratulations! Your mail has been send to the user.";
 	} **/
-	
-	
+
 	
 }
