@@ -224,6 +224,7 @@ public class SkillsRestController
 	
 	@RequestMapping(method= RequestMethod.GET, value="/search/{search}")
 	public List<AssociateSkills> search(@PathVariable String search) {
+		//search="*."+search+".*";
 		return service.search(search, search, search, search, search, search, search);
 	}
 

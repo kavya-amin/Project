@@ -11118,3 +11118,39 @@ java.lang.InterruptedException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-30 11:08:16.505
+!MESSAGE Preparing classpath changed notification spring-skill-tracker
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-30 11:08:16.513
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-30 11:08:16.569
+!MESSAGE classpath=178 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-30 11:08:16.684
+!MESSAGE buffering callback sts4.classpath.rVPQttaJ spring-skill-tracker false 178
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-30 11:08:16.692
+!MESSAGE executing callback sts4.classpath.rVPQttaJ 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-30 11:08:17.556
+!MESSAGE executing callback sts4.classpath.rVPQttaJ SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-30 11:08:18.709
+!MESSAGE Preparing classpath changed notification spring-skill-tracker
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-30 11:08:18.747
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-30 11:08:19.015
+!MESSAGE classpath=178 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-30 11:08:19.083
+!MESSAGE buffering callback sts4.classpath.rVPQttaJ spring-skill-tracker false 178
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-30 11:08:19.099
+!MESSAGE executing callback sts4.classpath.rVPQttaJ 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-30 11:08:19.158
+!MESSAGE executing callback sts4.classpath.rVPQttaJ SUCCESS [done]

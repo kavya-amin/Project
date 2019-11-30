@@ -8782,3 +8782,55 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2019-11-29 23:36:35,707 [Worker-875: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-11-29 23:36:35,708 [Worker-875: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2019-11-29 23:36:35,711 [Worker-875: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-29 23:36:35,712 [Worker-875: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-29 23:36:35,732 [Worker-875: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\b8ibmjava19\Documents\Project\spring-skill-tracker\src\test\resources
+2019-11-30 11:08:07,229 [Worker-895: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:spring-skill-tracker:0.0.1-SNAPSHOT @ C:\Users\b8ibmjava19\Documents\Project\spring-skill-tracker\pom.xml.
+2019-11-30 11:08:09,151 [Worker-895: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/regexp/regexp/1.3/regexp-1.3.pom
+2019-11-30 11:08:09,456 [Worker-895: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/regexp/regexp/1.3/regexp-1.3.pom
+2019-11-30 11:08:13,372 [Worker-895: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/regexp/regexp/1.3/regexp-1.3.jar
+2019-11-30 11:08:13,989 [Worker-895: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/regexp/regexp/1.3/regexp-1.3.jar
+2019-11-30 11:08:15,196 [Worker-895: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:08:15,207 [Worker-895: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 11:08:15,214 [Worker-895: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 11:08:15,216 [Worker-895: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:08:15,223 [Worker-895: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\b8ibmjava19\Documents\Project\spring-skill-tracker\src\test\resources
+2019-11-30 11:08:16,931 [Worker-894: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/regexp/regexp/1.3/regexp-1.3-sources.jar
+2019-11-30 11:08:17,715 [Worker-894: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/regexp/regexp/1.3/regexp-1.3-sources.jar
+2019-11-30 11:08:17,902 [Worker-894: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for regexp:regexp:1.3
+2019-11-30 11:08:19,091 [Worker-899: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:08:19,116 [Worker-899: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 11:08:19,194 [Worker-899: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 11:08:19,196 [Worker-899: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:08:19,209 [Worker-899: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\b8ibmjava19\Documents\Project\spring-skill-tracker\src\test\resources
+2019-11-30 11:10:30,893 [Worker-898: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:10:30,901 [Worker-898: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 11:10:30,912 [Worker-898: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 11:10:30,920 [Worker-898: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:10:30,920 [Worker-898: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\b8ibmjava19\Documents\Project\spring-skill-tracker\src\test\resources
+2019-11-30 11:17:41,325 [Worker-894: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:17:41,326 [Worker-894: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 11:17:41,329 [Worker-894: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 11:17:41,331 [Worker-894: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:17:41,331 [Worker-894: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\b8ibmjava19\Documents\Project\spring-skill-tracker\src\test\resources
+2019-11-30 11:18:45,561 [Worker-905: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:18:45,562 [Worker-905: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 11:18:45,570 [Worker-905: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 11:18:45,577 [Worker-905: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:18:45,577 [Worker-905: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\b8ibmjava19\Documents\Project\spring-skill-tracker\src\test\resources
+2019-11-30 11:26:06,410 [Worker-899: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:26:06,412 [Worker-899: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 11:26:06,423 [Worker-899: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 11:26:06,431 [Worker-899: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:26:06,438 [Worker-899: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\b8ibmjava19\Documents\Project\spring-skill-tracker\src\test\resources
+2019-11-30 11:26:33,471 [Worker-908: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:26:33,479 [Worker-908: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 11:26:33,488 [Worker-908: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 11:26:33,496 [Worker-908: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:26:33,496 [Worker-908: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\b8ibmjava19\Documents\Project\spring-skill-tracker\src\test\resources
+2019-11-30 11:28:29,480 [Worker-908: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:28:29,481 [Worker-908: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 11:28:29,484 [Worker-908: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 11:28:29,489 [Worker-908: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:28:29,496 [Worker-908: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\b8ibmjava19\Documents\Project\spring-skill-tracker\src\test\resources
+2019-11-30 11:28:59,676 [Worker-903: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-30 11:28:59,686 [Worker-903: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource

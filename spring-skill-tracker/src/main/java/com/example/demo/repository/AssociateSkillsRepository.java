@@ -15,8 +15,11 @@ public interface AssociateSkillsRepository extends CrudRepository<AssociateSkill
 	AssociateSkills findByAidAssociateId(Integer associateId);
 	Iterable<AssociateSkills> deleteByAidAssociateId(Integer id);
 	List<AssociateSkills> findAll();
-	List<AssociateSkills> findByAidAssociateFirstNameOrAidAssociateLastNameOrAidAssociateEmailOrAidLocationOrAidCountryOrSidSkillNameOrSidSkillCategory(String res1,String res2,String res3,String res4,String res5,String res6,String res7);
-	//
+	List<AssociateSkills> findByAidAssociateFirstNameStartingWithOrAidAssociateLastNameStartingWithOrAidAssociateEmailStartingWithOrAidLocationStartingWithOrAidCountryStartingWithOrSidSkillNameStartingWithOrSidSkillCategoryStartingWith(String res1,String res2,String res3,String res4,String res5,String res6,String res7);
+
+	
+	
+	//List<AssociateSkills> findByAidAssociateFirstNameOrAidAssociateLastNameOrAidAssociateEmailOrAidLocationOrAidCountryOrSidSkillNameOrSidSkillCategory(String res1,String res2,String res3,String res4,String res5,String res6,String res7);
 //	AssociateSkills findByAidAssociateLastName(String LastName);
 //	AssociateSkills findByAidAssociateEmail(String AssociateEmail);
 //	AssociateSkills findByAidAssociateMobile(String AssociateMobile);
