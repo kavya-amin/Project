@@ -144,5 +144,17 @@ public class SkillsService
 		return sd.search(res1, res2, res3, res4, res5, res6, res7);
 	}
 	
+	public void deleteSkillById(int id) {
+		sd.deleteSkillById(id);
+	}
+	
+	public List<AssociateSkills> findAssociateSkillByAid(AssociateInfo aid){
+		return sd.findAssociateSkillByAid(aid);
+	}
+	
+	public void deleteAssociateSkillBySid(SkillsInfo sid) {
+		sd.deleteAssociateSkillBySid(sid);
+	}
+	
 	
 }

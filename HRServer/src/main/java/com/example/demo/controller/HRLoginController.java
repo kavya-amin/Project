@@ -19,6 +19,7 @@ import com.example.demo.service.HRLoginService;
 import com.example.demo.service.MailService;
 
 @RestController
+@RequestMapping("/api")
 public class HRLoginController
 {
 	@Autowired
