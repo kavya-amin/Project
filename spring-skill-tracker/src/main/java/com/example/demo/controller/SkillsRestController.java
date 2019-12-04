@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -115,8 +116,8 @@ public class SkillsRestController
 		return service.getAllAssociates();
 	}
 	
-	@GetMapping(path="/associateSkills/{id}")
-	public AssociateSkills getAllAssociatesSkills(@PathVariable("id") int id) {
+	@GetMapping(path="/associateSkills/{srNo}")
+	public AssociateSkills getAllAssociatesSkills(@PathVariable("srNo") int id) {
 		System.out.println("url hit for all skills");
 		return service.getAllAssociatesSkills(id);
 	}
@@ -132,11 +133,18 @@ public class SkillsRestController
 		return service.deleteAssociatesSkillsByAid(id);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "/updateAssociateSkills")
-	public void updateAssociateSkills(@RequestBody AssociateSkills skills) 
+	@RequestMapping(method = RequestMethod.PUT, value = "/updateAssociateSkills/{srNo}")
+	public void updateAssociateSkills(@PathVariable int srNo, @RequestBody AssociateSkills associateSkills) 
 	{
-		System.out.println(skills);
-		service.updateAssociateSkills(skills);
+		System.out.println(srNo);
+		AssociateSkills associateSkills2 = service.getAllAssociatesSkills(srNo);
+		associateSkills2.setCertification(associateSkills.getCertification());
+		associateSkills2.setDuration(associateSkills.getDuration());
+		associateSkills2.setStartDate(associateSkills.getStartDate());
+		associateSkills2.setEndDate(associateSkills.getEndDate());
+		associateSkills2.setRating(associateSkills.getRating());
+		associateSkills2.setExperience(associateSkills.getExperience());
+		service.updateAssociateSkills(associateSkills2);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateAssociate")

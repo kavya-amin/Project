@@ -61,8 +61,8 @@ public class SkillsService
 		return sd.getAssociatesSkills();
 	}
 
-	public void updateAssociateSkills(AssociateSkills skills) {
-		sd.updateAssociateSkills(skills);
+	public void updateAssociateSkills( AssociateSkills associateSkills) {
+		sd.updateAssociateSkills(associateSkills);
 		
 	}
 

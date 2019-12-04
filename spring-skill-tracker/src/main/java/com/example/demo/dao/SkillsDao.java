@@ -2,9 +2,11 @@ package com.example.demo.dao;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.id.UUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
@@ -37,6 +39,7 @@ public class SkillsDao {
 
 	@Autowired
 	private MailService mailService;
+	
 
 	public void getAssociateInfo(int id) {
 		System.out.println("In skills dao");
@@ -62,7 +65,7 @@ public class SkillsDao {
 	}
 
 	public AssociateSkills getAllAssociatesSkills(int id) {
-		return assoRepo.findByAidAssociateId(id);
+		return assoRepo.findBySrNo(id);
 	}
 
 	public Iterable<SkillsInfo> getAllSkills() {
@@ -85,8 +88,8 @@ public class SkillsDao {
 	}
 
 	@Transactional
-	public void updateAssociateSkills(AssociateSkills skills) {
-		assoRepo.save(skills);
+	public void updateAssociateSkills(AssociateSkills associateSkills) {
+		assoRepo.save(associateSkills);
 	}
 
 	@Transactional
@@ -119,8 +122,13 @@ public class SkillsDao {
 
 	@Transactional
 	public void saveAssociate(AssociateInfo associate) {
-		mailService.sendEmail(associate.getAssociateEmail(), associate.getPassword());
-		associate.setPassword(bCryptPasswordEncoder.encode(associate.getPassword()));
+		String password= UUID.randomUUID().toString();
+		System.out.println(password);
+		String arr[]=password.trim().split("-");
+		System.out.println(arr[0]);
+		//mailService.sendEmail(associate.getAssociateEmail(), password);
+		associate.setPassword(bCryptPasswordEncoder.encode(arr[0]));
+		System.out.print(associate.getPassword());
 		skillsRepo.save(associate);
 	}
 
@@ -166,7 +174,7 @@ public class SkillsDao {
 		AssociateInfo associateInfo = skillsRepo.findByAssociateEmail(email);
 		if (associateInfo != null) {
 			if (associateInfo.getAssociateEmail().equals(email)
-					&& associateInfo.getPassword().equals(bCryptPasswordEncoder.encode(pass))) {
+					&& bCryptPasswordEncoder.matches(pass,associateInfo.getPassword() )) {
 				System.out.print("success");
 				return associateInfo;
 			} else {
@@ -191,6 +199,9 @@ public class SkillsDao {
 
 	@Transactional
 	public void deleteSkillById(int id) {
+		AssociateSkills associateSkills = assoRepo.findBySidSkillId(id);
+		int id1 = associateSkills.getSrNo();
+		assoRepo.deleteById(id1);
 		skillInfoRepo.deleteById(id);
 	}
 
