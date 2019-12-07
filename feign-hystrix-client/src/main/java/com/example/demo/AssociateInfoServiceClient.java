@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @FeignClient("main-skills-tracker")
 public interface AssociateInfoServiceClient {
-	@GetMapping("/associate/all")
+	@GetMapping("/api/associate/all")
 	public Iterable<AssociateInfo> getAllAssociates();
 		
 }

@@ -18,7 +18,7 @@ public interface AssociateSkillsRepository extends CrudRepository<AssociateSkill
 	List<AssociateSkills> findAll();
 	AssociateSkills findBySrNo(Integer id);
 	List<AssociateSkills> findByAidAssociateFirstNameStartingWithOrAidAssociateLastNameStartingWithOrAidAssociateEmailStartingWithOrAidLocationStartingWithOrAidCountryStartingWithOrSidSkillNameStartingWithOrSidSkillCategoryStartingWith(String res1,String res2,String res3,String res4,String res5,String res6,String res7);
-
+	List<AssociateSkills> findBySidSkillCategory(String skillCategory);
 	
 	
 	//List<AssociateSkills> findByAidAssociateFirstNameOrAidAssociateLastNameOrAidAssociateEmailOrAidLocationOrAidCountryOrSidSkillNameOrSidSkillCategory(String res1,String res2,String res3,String res4,String res5,String res6,String res7);

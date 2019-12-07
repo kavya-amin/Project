@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,7 +23,8 @@ import com.example.demo.service.MailService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+@RequestMapping(value= "/api/**", method=RequestMethod.OPTIONS)
+
 public class HRLoginController
 {
 	@Autowired
@@ -30,6 +33,13 @@ public class HRLoginController
 	
 	@Autowired
 	private MailService notificationService;
+	
+	public void corsHeaders(HttpServletResponse response) {
+	    response.addHeader("Access-Control-Allow-Origin", "*");
+	    response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+	    response.addHeader("Access-Control-Allow-Headers", "origin, content-type, accept, x-requested-with");
+	    response.addHeader("Access-Control-Max-Age", "3600");
+	}
 	
 	@PostMapping("/create-hr")
 	public HR createHr(@RequestBody HR hr) {
@@ -64,6 +74,7 @@ public class HRLoginController
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/login")
 	HR verifyUser(@RequestBody HR hr ) {
+		System.out.println("entered controller");
 			return service.verifyUser(hr.getUserEmail(),hr.getUserPassword());
 	}
 	

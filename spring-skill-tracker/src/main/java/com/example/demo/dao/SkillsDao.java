@@ -81,7 +81,7 @@ public class SkillsDao {
 	@Transactional
 	public void updateAssociate(AssociateInfo associateInfo) {
 		String email = associateInfo.getAssociateEmail();
-		AssociateInfo associate = skillsRepo.findByAssociateEmail(email);
+		AssociateInfo associate = skillsRepo.findByAssociateEmailStartingWith(email);
 		associateInfo.setAssociateId(associate.getAssociateId());
 		skillsRepo.save(associateInfo);
 
@@ -100,7 +100,7 @@ public class SkillsDao {
 	@Transactional
 	public void deleteAssociat(String email) {
 
-		AssociateInfo associateInfo = skillsRepo.findByAssociateEmail(email);
+		AssociateInfo associateInfo = skillsRepo.findByAssociateEmailStartingWith(email);
 		int id = associateInfo.getAssociateId();
 		System.out.println("Associate id :" + id);
 		AssociateSkills associateSkills = assoRepo.findByAidAssociateId(id);
@@ -126,7 +126,7 @@ public class SkillsDao {
 		System.out.println(password);
 		String arr[]=password.trim().split("-");
 		System.out.println(arr[0]);
-		//mailService.sendEmail(associate.getAssociateEmail(), password);
+		mailService.sendEmail(associate.getAssociateEmail(), arr[0]);
 		associate.setPassword(bCryptPasswordEncoder.encode(arr[0]));
 		System.out.print(associate.getPassword());
 		skillsRepo.save(associate);
@@ -138,40 +138,40 @@ public class SkillsDao {
 
 	public List<AssociateInfo> getAssociateName(String name) {
 		// TODO Auto-generated method stub
-		return skillsRepo.findByAssociateFirstName(name);
+		return skillsRepo.findByAssociateFirstNameStartingWith(name);
 	}
 
 	public List<AssociateInfo> getAssociateLastName(String name) {
-		return skillsRepo.findByAssociateLastName(name);
+		return skillsRepo.findByAssociateLastNameStartingWith(name);
 	}
 
 	public List<AssociateInfo> getAssociateFisrtAndLastName(String FirstName, String LastName) {
-		return skillsRepo.findByAssociateFirstNameAndAssociateLastName(FirstName, LastName);
+		return skillsRepo.findByAssociateFirstNameStartingWithOrAssociateLastNameStartingWith(FirstName, LastName);
 	}
 
 	public AssociateInfo getAssociateEmail(String email) {
-		return skillsRepo.findByAssociateEmail(email);
+		return skillsRepo.findByAssociateEmailStartingWith(email);
 	}
 
 	public List<AssociateInfo> getAssociateMobile(long mobile) {
-		return skillsRepo.findByAssociateMobile(mobile);
+		return skillsRepo.findByAssociateMobileStartingWith(mobile);
 	}
 
 	public List<AssociateInfo> findByCountryAndLocation(String country, String location) {
-		return skillsRepo.findByCountryAndLocation(country, location);
+		return skillsRepo.findByCountryStartingWithOrLocationStartingWith(country, location);
 	}
 
 	public List<AssociateInfo> findByCountry(String country) {
-		return skillsRepo.findByCountry(country);
+		return skillsRepo.findByCountryStartingWith(country);
 	}
 
 	public List<AssociateInfo> findByLocation(String location) {
-		return skillsRepo.findByLocation(location);
+		return skillsRepo.findByLocationStartingWith(location);
 	}
 
 	public AssociateInfo verifyAssociate(String email, String pass) {
 
-		AssociateInfo associateInfo = skillsRepo.findByAssociateEmail(email);
+		AssociateInfo associateInfo = skillsRepo.findByAssociateEmailStartingWith(email);
 		if (associateInfo != null) {
 			if (associateInfo.getAssociateEmail().equals(email)
 					&& bCryptPasswordEncoder.matches(pass,associateInfo.getPassword() )) {
@@ -213,5 +213,14 @@ public class SkillsDao {
 	public void deleteAssociateSkillBySid(SkillsInfo sid) {
 		assoSkillsRepo.deleteBySid(sid);
 	}
-
+	
+	public List<AssociateSkills> searchBySkillCategory(String skillCategory) {
+		return assoRepo.findBySidSkillCategory(skillCategory);
+	}
+	
+	public SkillsInfo findBySkillCategory(String skill) {
+		return skillInfoRepo.findBySkillCategory(skill);
+	}
+	
+	
 }

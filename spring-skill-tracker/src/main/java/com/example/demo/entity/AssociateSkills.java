@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -30,13 +31,19 @@ public class AssociateSkills
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "sr_no")
 	private Integer srNo;	
+	@NotNull
 	private String certification;
+	@NotNull
 	private String rating;
+	@NotNull
 	@Column(name = "start_date")
 	private String startDate;
+	@NotNull
 	@Column(name = "end_date")
 	private String endDate;
+	@NotNull
 	private String duration;
+	@NotNull
 	private String experience;
 	
 	@ManyToOne(optional = false)

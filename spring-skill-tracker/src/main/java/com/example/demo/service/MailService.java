@@ -23,7 +23,8 @@ public class MailService {
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setTo(email);
 		mail.setSubject("Welcome message");
-		mail.setText("Welcome to the Skill hunt Portal. You have to learn more skills to move higher in levels. \nYour password is : "
+		mail.setText("Welcome to the Skill hunt Portal. You have to learn more skills to move higher in levels. "
+				+ "\nYour username is: "+email+" \nYour password is : "
 		+password);
 		javaMailSender.send(mail);
 		System.out.println("mail sent");

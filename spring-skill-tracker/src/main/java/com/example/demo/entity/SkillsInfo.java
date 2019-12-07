@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -18,9 +19,11 @@ public class SkillsInfo
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "skill_id")
 	private int skillId; 
+	@NotNull
 	@Column(name = "skill_name")
 	private String skillName;
-	@Column(name = "skill_category")
+	@NotNull
+	@Column(name = "skill_category",unique=true)
 	private String skillCategory;
 	
 	//@OneToMany(fetch = FetchType.LAZY,mappedBy = "sid", cascade = { CascadeType.PERSIST, CascadeType.MERGE,

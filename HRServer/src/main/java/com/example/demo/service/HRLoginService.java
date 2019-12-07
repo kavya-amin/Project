@@ -48,17 +48,21 @@ public class HRLoginService
 public HR verifyUser(String email, String pass ) {
 	
 	HR hr = repo.findByUserEmail(email);
+	System.out.println(email);
 	if(hr!=null) {
 		    if(hr.getUserEmail().equals(email) && hr.getUserPassword().equals(pass))
 		    {
+		    	System.out.println("success");
 			return hr;
 		    }
 		  else
 		  {
+			  System.out.println("wrong");
 			return null;
 		  }
 		}
 	else {
+		System.out.println("null");
 		return null;
 		}
 }

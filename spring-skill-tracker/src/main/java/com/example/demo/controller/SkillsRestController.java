@@ -104,10 +104,9 @@ public class SkillsRestController
 		return service.getAssociateName(name);
 	}
 	
-	@GetMapping(path="/country/{country}/and/location/{location}")
-	public List<AssociateInfo> getByCountryAndLocation(@PathVariable("country") String country,
-			@PathVariable("location") String location){
-		return service.findByCountryAndLocation(country, location);
+	@GetMapping(path="/country/{location}")
+	public List<AssociateInfo> getByCountryAndLocation(@PathVariable String location){
+		return service.findByCountryAndLocation(location, location);
 	}
 	
 	@GetMapping(path="/associate/all")
@@ -177,11 +176,27 @@ public class SkillsRestController
 		return service.getAllSkills();
 	}
 	
+	@GetMapping("/findBySkillCategory/{skillCategory}")
+	public SkillsInfo findBySkillCategory(@PathVariable String skillCategory) {
+		return service.findBySkillCategory(skillCategory);
+	}
+	
+	
 	@RequestMapping(method = RequestMethod.POST, value = "/saveSkills")
 	public void saveSkills(@RequestBody SkillsInfo skillInfo) 
 	{
 		System.out.println("save skills");
-		service.saveSkills(skillInfo);
+		String skillCategory = skillInfo.getSkillCategory();
+		SkillsInfo skill =service.findBySkillCategory(skillCategory);
+		if(skill==null) {
+			service.saveSkills(skillInfo);
+		}
+		else {
+			String skill1 = skillInfo.getSkillName()+","+skill.getSkillName();
+			skillInfo.setSkillId(skill.getSkillId());
+			skillInfo.setSkillName(skill1);
+			service.saveSkills(skillInfo);
+		}
 	}
 	
 	@RequestMapping("/skill/{id}")
@@ -195,11 +210,10 @@ public class SkillsRestController
 		return service.findByLastName(LastName);
 	}
 	
-	@GetMapping(path = "/AssociateFirstNameAndLastName/{associateFirstName}/{associateLastName}")
-	public List<AssociateInfo> findByFirstNameAndLastName(@PathVariable(value = "associateFirstName")
-	String fName,@PathVariable(value = "associateLastName") String lName){
+	@GetMapping(path = "/AssociateFirstNameAndLastName/{associateName}")
+	public List<AssociateInfo> findByFirstNameAndLastName(@PathVariable String associateName){
 		
-		return service.findByFirstNameAndLastName(fName, lName);
+		return service.findByFirstNameAndLastName(associateName, associateName);
 		
 	}
 	
@@ -249,8 +263,11 @@ public class SkillsRestController
 	public void deleteAssociateSkillBySid(@PathVariable SkillsInfo skillId) {
 		service.deleteAssociateSkillBySid(skillId);
 	}
-
 	
+	@GetMapping("/skillCategory/{skillCategory}")
+	public List<AssociateSkills> searchBySkillCategory(@PathVariable String skillCategory) {
+		return service.searchBySkillCategory(skillCategory);
+	}
 /**	@RequestMapping(method = RequestMethod.POST, value = "/send-mail")
 	public String send(@RequestBody Message msg) 
 	{
@@ -264,6 +281,5 @@ public class SkillsRestController
 		}
 		return "Congratulations! Your mail has been send to the user.";
 	} **/
-
 	
 }

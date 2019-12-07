@@ -10,14 +10,14 @@ import com.example.demo.entity.AssociateInfo;
 
 public interface AssociateInfoRepository extends CrudRepository<AssociateInfo, Integer> 
 {
-	public List<AssociateInfo> findByAssociateFirstName(String associateFirstName);
-	public List<AssociateInfo> findByAssociateLastName(String associateLastName);
-	public List<AssociateInfo> findByAssociateFirstNameAndAssociateLastName(String associateFirstName, String associateLastName);
-	public AssociateInfo findByAssociateEmail(String associateEmail);
-	public List<AssociateInfo> findByAssociateMobile(Long associateMobile);
-	public List<AssociateInfo> findByCountryAndLocation(String country,String location);
-	public List<AssociateInfo> findByCountry(String country);
-	public List<AssociateInfo> findByLocation(String location);
+	public List<AssociateInfo> findByAssociateFirstNameStartingWith(String associateFirstName);
+	public List<AssociateInfo> findByAssociateLastNameStartingWith(String associateLastName);
+	public List<AssociateInfo> findByAssociateFirstNameStartingWithOrAssociateLastNameStartingWith(String associateFirstName, String associateLastName);
+	public AssociateInfo findByAssociateEmailStartingWith(String associateEmail);
+	public List<AssociateInfo> findByAssociateMobileStartingWith(Long associateMobile);
+	public List<AssociateInfo> findByCountryStartingWithOrLocationStartingWith(String country,String location);
+	public List<AssociateInfo> findByCountryStartingWith(String country);
+	public List<AssociateInfo> findByLocationStartingWith(String location);
 	
 	
 	public AssociateInfo findUserByAssociateId(int associateId);

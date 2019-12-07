@@ -156,5 +156,13 @@ public class SkillsService
 		sd.deleteAssociateSkillBySid(sid);
 	}
 	
+	public List<AssociateSkills> searchBySkillCategory(String skillCategory) {
+		return sd.searchBySkillCategory(skillCategory);
+	}
+	
+	public SkillsInfo findBySkillCategory(String skill) {
+		return sd.findBySkillCategory(skill);
+	}
+	
 	
 }
