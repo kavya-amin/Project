@@ -1,8 +1,5 @@
 package com.example.demo;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +13,8 @@ public class MainController {
 	
 	@SuppressWarnings("rawtypes")
 	@GetMapping(value="/allAssociate")
-	public Map<String,Iterable> allAssociates(){
-		Map<String , Iterable> result = new HashMap<String,Iterable>();
-		result.put("associates", integrationClient.getAllAssociates());
-		return result;
+	public Iterable<AssociateInfo> allAssociates(){
+		return integrationClient.getAllAssociates();
 	}
 
 }
