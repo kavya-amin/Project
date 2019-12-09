@@ -268,6 +268,13 @@ public class SkillsRestController
 	public List<AssociateSkills> searchBySkillCategory(@PathVariable String skillCategory) {
 		return service.searchBySkillCategory(skillCategory);
 	}
+	
+	@GetMapping("/forgotPassword/{associateEmail}")
+	public void forgotPassword(@PathVariable String associateEmail) {
+		System.out.println("Entered controller");
+		service.forgotPassword(associateEmail);
+		
+	}
 /**	@RequestMapping(method = RequestMethod.POST, value = "/send-mail")
 	public String send(@RequestBody Message msg) 
 	{

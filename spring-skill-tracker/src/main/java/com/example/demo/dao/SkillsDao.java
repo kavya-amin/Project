@@ -131,7 +131,18 @@ public class SkillsDao {
 		System.out.print(associate.getPassword());
 		skillsRepo.save(associate);
 	}
-
+	
+	public void forgotPassword(String email) {
+		AssociateInfo associateInfo= skillsRepo.findByAssociateEmailStartingWith(email);
+		String password= UUID.randomUUID().toString();
+		System.out.println(password);
+		String arr[]=password.trim().split("-");
+		System.out.println(arr[0]);
+		mailService.forgotPassword(associateInfo.getAssociateEmail(), arr[0]);
+		associateInfo.setPassword(bCryptPasswordEncoder.encode(arr[0]));
+		skillsRepo.save(associateInfo);
+	}
+	
 	public void saveSkills(SkillsInfo skillInfo) {
 		skillInfoRepo.save(skillInfo);
 	}

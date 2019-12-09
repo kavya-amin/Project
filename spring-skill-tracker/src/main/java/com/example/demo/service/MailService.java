@@ -29,4 +29,16 @@ public class MailService {
 		javaMailSender.send(mail);
 		System.out.println("mail sent");
 	}
+	
+	public void forgotPassword(String email, String password) throws MailException 
+	{
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(email);
+		mail.setSubject("Password Reset");
+		mail.setText("Your password has been reset successfully. "
+				+ "\nYour username is: "+email+" \nYour password is : "
+		+password);
+		javaMailSender.send(mail);
+		System.out.println("mail sent");
+	}
 }

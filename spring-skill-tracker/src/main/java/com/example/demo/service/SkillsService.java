@@ -164,5 +164,8 @@ public class SkillsService
 		return sd.findBySkillCategory(skill);
 	}
 	
+	public void forgotPassword(String email) {
+		 sd.forgotPassword(email);
+	}
 	
 }
