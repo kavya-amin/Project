@@ -34,7 +34,7 @@ public class MailService {
 	 * @throws MailException
 	 */
 
-	public void sendEmail(User user) throws MailException {
+	public void sendEmail(String emailAddress) throws MailException {
 
 		/*
 		 * This JavaMailSender Interface is used to send Mail in Spring Boot. This
@@ -44,9 +44,10 @@ public class MailService {
 		 */
 
 		SimpleMailMessage mail = new SimpleMailMessage();
-		mail.setTo(user.getEmailAddress());
-		mail.setSubject("Confidential - Password Reset");
-		mail.setText("You can reset the password by clicking on this link http://localhost:4200/passwordPage");
+		mail.setTo(emailAddress);
+		mail.setSubject("Ratings low upgrade now!!!!");
+		mail.setText("Upgrade your skills constantly to keep your job secure. \n Refer following link to enhance your skill : \n"
+				+ "https://www.codecademy.com/");
 
 		/*
 		 * This send() contains an Object of SimpleMailMessage as an Parameter
